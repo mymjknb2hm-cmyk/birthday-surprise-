@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday! 🎉</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: red;
+    top: -10px;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎉 Happy Birthday! 🎂</h1>
+<img src="cake.png" alt="Birthday Cake">
+<p>Wishing you a day full of love, fun, and happiness 💖</p>
+<button onclick="sendWish()">Send Wishes 💌</button>
+
+<script>
+  function sendWish() {
+    window.open('https://wa.me/?text=Happy%20Birthday!%20Have%20a%20wonderful%20day!','_blank');
+  }
+
+  function createConfetti() {
+    for(let i=0; i<50; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+      document.body.appendChild(confetti);
+    }
+  }
+
+  createConfetti();
+</script>
+
+</body>
+</html>
